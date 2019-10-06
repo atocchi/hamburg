@@ -1,0 +1,27 @@
+{
+  "name": "hamburg",
+  "version": "1.0.0",
+  "description": "Hamburger eater",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atocchi/hamburg.git"
+  },
+  "keywords": [
+    "handlebars"
+  ],
+  "author": "Andrew Tocchi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/atocchi/hamburg/issues"
+  },
+  "homepage": "https://github.com/atocchi/hamburg#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mysql": "^2.17.1"
+  }
+}
