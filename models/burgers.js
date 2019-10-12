@@ -1,23 +1,19 @@
 const orm = require ('.././config/orm.js');
 
-let burgers = [];
 
-burgerArr = {
 
-select: function(){
+burger = {
+
+select: function(stupidasscallback){
 //This will go through the mysql library and push theburger types to burgers
 orm.selectAll(function(result) {
-    let data = result
-    
-    for(i = 0; i < data.length; i++){
-        burgers.push(data[i].burger_name);
-    
-    }
-    console.log(burgers)
+    //we should be using promises here instead 
+    stupidasscallback(result)
     })
-}
+},
+
 }
 
 
-    module.exports = burgerArr;
+    module.exports = burger;
     

@@ -4,12 +4,15 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 const exphbs = require("express-handlebars");
-const burgerArr = require(`./models/burgers.js`)
+//calling dumb callback command 
+const burger = require(`./models/burgers.js`)
+//calling ORM
 const orm = require('./config/orm.js')
 
-burgerArr.select();
-orm.updateOne("Super Amazing Super Burger");
 
+
+
+// console.log(burgerArr.select())
 
 
 //start Handlebars
@@ -24,11 +27,18 @@ app.listen(PORT, function() {
 //Allows CSS and Image files to be Loaded 
 app.use(express.static('public'))
   
+
+
+
+
+
+
 app.get("/", function(req, res) {
+burger.select(function(data){
+let stupidOject = {burger: data};
 
+  res.render("index", stupidOject)
+})
 
-
-
-res.render("index")
 });
 

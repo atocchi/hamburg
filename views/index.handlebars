@@ -1,8 +1,25 @@
-<div>
-  {{burgers}}
-    {{!-- <ul class="list"></ul>
-  {{#each burgers}}
-      <li>{{burgers}}</li>
-  {{/each}}
-    </ul> --}}
-</div>
+<ul id="left">
+{{#each burger}}
+{{#unless this.devoured}}
+<li>
+{{this.id}}
+{{this.burger_name}}
+<button>EAT</button>
+</li>
+{{/unless}}
+{{/each}}
+</ul>
+<br><div>--------EATEN-------------</div>
+<ul id="right">
+{{#each burger}}
+{{#if this.devoured}}
+<li>
+{{this.id}}
+{{this.burger_name}}
+</li>
+{{/if}}
+{{/each}}
+</ul>
+
+
+</ul>

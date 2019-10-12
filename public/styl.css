@@ -5,6 +5,9 @@ background-color: bisque;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: orange;
 };
-#burger{
-
+#left{
+float: left;
+}
+#right{
+float: right;
 }
