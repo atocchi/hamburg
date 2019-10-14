@@ -12,3 +12,10 @@ display: grid;
     padding: 5px;
     align-content: center;
 }
+#left{
+    float: left;
+    }
+    #right{
+    float: right;
+    color: grey;
+    }

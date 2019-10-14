@@ -9,6 +9,45 @@
         <h4 id="header">Eat The Hamburger</h4>
 		{{{ body }}}
         <h1>Please Order your burger Below</h1><br>
-        <input type="text" value="Enter your burger here...">
+        <input type="text" value="Enter your burger here..." id="form">
+		<button id="submit">Submit</button>
 	</body>
+	<script>
+  document.getElementById('submit').addEventListener('click', function () {
+let formBut = document.getElementById('form').value.trim();
+fetcher(formBut);
+document.location.reload(true);
+})
+
+document.addEventListener('click', function (e) {
+if (e.target.id === "eat"){
+  let targ = document.getElementById(e.target.value).innerHTML
+  fetcherEat(targ);
+  document.location.reload(true);
+}
+ 
+})
+
+// function that runs the fetch POST to send back to the Server
+function fetcher(x){
+fetch(`/api`, {
+    method: 'post',
+    body:  JSON.stringify({"data": x}),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+}
+
+// sends to the eaten burger API
+function fetcherEat(y){
+fetch(`/api/eat`, {
+    method: 'post',
+    body:  JSON.stringify({"data": y}),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+}
+	</script>
 </html>

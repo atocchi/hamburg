@@ -10,9 +10,9 @@ const burger = require(`./models/burgers.js`)
 const orm = require('./config/orm.js')
 
 
-
-
-// console.log(burgerArr.select())
+//required for POST to parse the data
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 
 //start Handlebars
@@ -32,7 +32,8 @@ app.use(express.static('public'))
 
 
 
-
+// route that renders the index handlebars file
+//Callback returns the information from Mysql
 app.get("/", function(req, res) {
 burger.select(function(data){
 let stupidOject = {burger: data};
@@ -40,5 +41,35 @@ let stupidOject = {burger: data};
   res.render("index", stupidOject)
 })
 
+});
+
+let burgers = [];
+
+//API for added burgers
+app.post("/api", function(req, res) {
+  console.log((req.body.data))
+ if(req.body.data === "Enter your burger here..."){
+   console.log("DUPE DATA")
+ }else{
+   orm.insertOne(req.body.data);
+   console.log(`${req.body.data} inserted into DB`)
+ }
+  return res.status(200);
+  
+});
+
+app.post("/api/eat", function(req, res) {
+  console.log((req.body.data))
+  orm.updateOne(req.body.data);
+  return res.status(200);
+  
+});
+
+
+
+
+
+app.get("/api", function(req, res) {
+  return res.json(burgers);
 });
 

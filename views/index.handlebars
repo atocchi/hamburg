@@ -1,16 +1,19 @@
-<ul id="left">
+<div id="left">
+<ul>
 {{#each burger}}
 {{#unless this.devoured}}
 <li>
 {{this.id}}
-{{this.burger_name}}
-<button>EAT</button>
+<p id={{this.id}}>{{this.burger_name}}</p>
+<button id="eat" value={{this.id}}>EAT</button>
 </li>
 {{/unless}}
 {{/each}}
 </ul>
+</div>
 <br><div>--------EATEN-------------</div>
-<ul id="right">
+<div id="right">
+<ul>
 {{#each burger}}
 {{#if this.devoured}}
 <li>
@@ -20,6 +23,6 @@
 {{/if}}
 {{/each}}
 </ul>
+</div>
 
 
-</ul>
