@@ -4,11 +4,11 @@ const key = require("./keys.js");
 
 //connection configuration 
 const connection = mysql.createConnection({
-  host: "localhost",
+  host: key.username,
   port: process.env.PORT || 3306,
-  user: "root",
-  password: key,
-  database: "burgers_db"
+  user: key.username,
+  password: key.password,
+  database: "heroku_3740580b24d4d53"
 });
 
 //Makes connection with DB
